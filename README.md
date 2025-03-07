@@ -68,12 +68,12 @@ Many user accounts are being accessed by unauthorized users.  Because of this we
 <h4> Result: </h4>
 <p>
     
-We have successfully created an Account Lockout Policy to protect the accounts of users in our domain from being accessed by unauthorized users.  User accounts will now be locked and inaccessible after too many unsuccessful login attempts.
+As the domain administrator, we have successfully created an Account Lockout Policy to protect the accounts of users in our domain from being accessed by unauthorized users.  User accounts will now be locked and inaccessible after too many unsuccessful login attempts.
     
 </p>
 <br />
 
-<h3>&#9313; Unlocking Locked User Account</h3>
+<h3>&#9313; Dealing with Locked User Accounts</h3>
 
 <h4>Situation:</h4>
 <p>
@@ -105,24 +105,58 @@ A user is unable to log in to their device because their account has been locked
 <p>
 
 As the domain administrator, we assisted the user by unlocking their account.  The user has regained full access and is now able to login successfully.
+
+- NOTE: You could test to see if it worked by simply logging in to Client-1 VM with the user's correct login credentials.
     
 </p>
 
 <br />
-<h3>&#9314; ex</h3>
+<h3>&#9314; Account Activation and Deactivation</h3>
+<br />
+
+<h4> Situation: </h4>
 
 <p>
 
-- 
-  
+A user has reason to believe their account information has been leaked and there is a chance an unauthorized user may have gained access to it.  The user reports this to a domain administrator so they can take action in ensuring the security of company resources.  The domain administrator will now want to temporarily deactivate the account and check the logs for any suspicious activity.
+    
+</p>
+<br/>
+
+<h4> Steps: </h4>
+
+<p>
+
+- Log in to the DC-1 VM as "Jane Doe" (Domain Admin)
+- Within "Active Directory Users and Computers" application, right click "mydomain.com" then click "Find"
+- Under "Name", type in the name of the user with the locked account to find them
+<img src="https://i.imgur.com/WIvwCtT.png" alt="find user"/>
+
+- Right click the found user and click "Disable Account"
+<img src="https://i.imgur.com/feJNNrv.png" alt="disabling account"/>
+
+- Now that the account is disabled, we will check the logs for suspicious activity
+- Log in to Client-1 VM as "Jane Doe"
+- Within Client-1 VM, type in "eventvwr.msc" in the windows search bar and open the application
+- Navigate to "Windows Logs" -> "Security"
+- Observe the logs and you will see that there have been some "Audit Failures"
+- If you look at the details, you will see that these particular "Audit Failures" are attempted login attempts that failed, which indicates that someone has been continuously trying to access the account
+<img src="https://i.imgur.com/JNe6SJd.png" alt="disabling account"/>
+
+- At this point the domain admin could contact the user to verify if these failed login attempts was them
+- If the user says that they were not the cause of the failed login attempts, then the domain administrator will reset their password to further protect their account.  To do this, go back to the Active Directory where we found the user, right click the user, and select "Reset password" to reset their password
+<img src="https://i.imgur.com/bytZdWr.png" alt="reset password"/>
+
+- Now that the domain administrator has reset their password, they can reactivate their account.  To do this, you will just right click the user and click "Enable Account".  (This is the same way you previously disabled account and reset password)
+<img src="https://i.imgur.com/bytZdWr.png" alt="enable account"/>
+    
 </p>
 <br />
 
-<h3>&#9315; ex</h3>
-
+<h4> Result: </h4>
 <p>
 
-- 
+As the domain administrator, we have successfully reviewed the user's account activity and protected company resources.  The user's account was deactivated, observed for suspicous activity, and re-enabled with new login credentials.  The user is now relieved that their account information is protected again.
   
 </p>
 <br />
