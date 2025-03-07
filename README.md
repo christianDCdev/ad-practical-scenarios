@@ -164,6 +164,7 @@ As the domain administrator, we have successfully reviewed the user's account ac
 <h2>Conclusion</h2>
 
 <p>
-  
+
+Congratulations on completing this series of Active Directory projects!  Active Directory is absolutely crucial for managing network access and security within an organization.  These simulated situations are common challenges an IT professional may encounter in the workplace and it is important to have an idea of how to resolve them.
 
 </p>
