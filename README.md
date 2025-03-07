@@ -112,7 +112,6 @@ As the domain administrator, we assisted the user by unlocking their account.  T
 
 <br />
 <h3>&#9314; Account Activation and Deactivation</h3>
-<br />
 
 <h4> Situation: </h4>
 
